@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dra. Dani Montenegro | Método Alívio Consciente</title>
+    
+    <!-- Tailwind CSS & Configuration -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sage: {
+                            100: '#E8EDE9',
+                            500: '#899A8B',
+                            700: '#5C6B5E',
+                            900: '#3A453C'
+                        },
+                        sand: '#FAF8F5',
+                        gold: '#C5A880',
+                        goldhover: '#B0946E',
+                        dark: '#1C1F1E'
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['Lato', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts & FontAwesome (Icons) -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Vue.js -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="bg-sand text-dark font-sans antialiased overflow-x-hidden selection:bg-gold selection:text-white">
+
+<div id="app">
+    <!-- WhatsApp Flutuante -->
+    <a href="https://wa.me/5500000000000?text=Olá,%20gostaria%20de%20falar%20com%20a%20secretaria%20para%20agendar%20uma%20avaliação." target="_blank" class="fixed bottom-6 right-6 bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-[0_4px_14px_0_rgba(37,211,102,0.39)] hover:scale-110 hover:shadow-[0_6px_20px_rgba(37,211,102,0.23)] transition-all duration-300 z-50">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Navbar -->
+    <nav class="fixed w-full bg-white/95 backdrop-blur-md z-40 border-b border-sage-100 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="flex justify-between items-center h-24">
+                <div class="flex-shrink-0 flex items-center cursor-pointer">
+                    <h1 class="font-serif text-2xl md:text-3xl font-bold text-sage-900 tracking-wider">Dani Montenegro</h1>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#metodo" class="text-xs font-bold uppercase tracking-[0.2em] text-sage-700 hover:text-gold transition">O Método</a>
+                    <a href="#procedimentos" class="text-xs font-bold uppercase tracking-[0.2em] text-sage-700 hover:text-gold transition">Procedimentos</a>
+                    <a href="#ebooks" class="text-xs font-bold uppercase tracking-[0.2em] text-sage-700 hover:text-gold transition">A Biblioteca</a>
+                    <a href="#sobre" class="text-xs font-bold uppercase tracking-[0.2em] text-sage-700 hover:text-gold transition">Sobre</a>
+                    <button @click="openModal" class="bg-sage-900 text-white px-7 py-3 rounded-full text-xs font-bold uppercase tracking-[0.15em] hover:bg-sage-700 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                        Agendar Consulta
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-40 pb-24 lg:pt-48 lg:pb-32 bg-sand">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col lg:flex-row items-center gap-16">
+            <div class="lg:w-1/2 text-center lg:text-left z-10">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sage-100 text-sage-900 text-xs font-bold uppercase tracking-widest mb-6">
+                    <i class="fas fa-star text-gold"></i> Odontologia Integrativa
+                </div>
+                <h2 class="font-serif text-5xl lg:text-6xl xl:text-7xl text-sage-900 leading-[1.1] mb-8">
+                    Quando a dor do corpo encontra o caminho da alma.
+                </h2>
+                <p class="text-lg lg:text-xl text-sage-700 mb-10 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                    Acorda com dor de cabeça, tensão no rosto ou sente que aperta os dentes? Liberte-se do bruxismo e da DTM com o <strong class="text-sage-900">Método Alívio Consciente</strong>. Inicie seu tratamento especializado ou dê o primeiro passo em casa com nossos materiais.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+                    <button @click="openModal" class="bg-sage-900 text-white px-8 py-4 rounded-full text-sm font-bold uppercase tracking-widest shadow-lg hover:bg-sage-700 transition-all duration-300 transform hover:-translate-y-1 w-full sm:w-auto">
+                        Agendar Consulta
+                    </button>
+                    <a href="#ebooks" class="bg-gold text-white px-8 py-4 rounded-full text-sm font-bold uppercase tracking-widest shadow-[0_4px_14px_0_rgba(197,168,128,0.39)] hover:bg-goldhover transition-all duration-300 text-center transform hover:-translate-y-1 w-full sm:w-auto">
+                        Acessar E-books
+                    </a>
+                </div>
+            </div>
+            <div class="lg:w-1/2 relative">
+                <div class="absolute inset-0 bg-sage-500 rounded-full transform translate-x-8 translate-y-8 opacity-10 blur-2xl"></div>
+                <img src="{{ url_for('static', filename='img/input_file_0.jpg') }}" alt="Dra. Dani Montenegro no consultório" class="relative z-10 rounded-t-full rounded-b-[120px] shadow-2xl object-cover w-full h-[550px] lg:h-[700px]" onerror="this.src='https://images.unsplash.com/photo-1590611936760-eeb9bc5094d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';">
+            </div>
+        </div>
+    </section>
+
+    <!-- Sintomas / Agitação do Problema -->
+    <section class="py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <h3 class="font-serif text-4xl md:text-5xl text-sage-900 mb-6">A dor que o exame não mostra</h3>
+                <p class="text-lg text-sage-700 leading-relaxed">Você já fez de tudo e a dor não passa? Muitas mulheres convivem anos com dores crônicas sem perceber que o corpo fala aquilo que a alma silencia.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+                <div class="bg-sand p-10 rounded-3xl text-center hover:-translate-y-3 transition-transform duration-300 border border-sage-100 shadow-sm hover:shadow-xl">
+                    <div class="w-16 h-16 mx-auto bg-white rounded-full flex items-center justify-center text-gold mb-6 shadow-sm text-2xl">💆‍♀️</div>
+                    <h4 class="font-serif text-xl text-sage-900 mb-3 font-bold">Dor de Cabeça e Face</h4>
+                    <p class="text-sm text-sage-700 leading-relaxed">Acordar com tensão, pressão constante ou sensação de cabeça pesada.</p>
+                </div>
+                <div class="bg-sand p-10 rounded-3xl text-center hover:-translate-y-3 transition-transform duration-300 border border-sage-100 shadow-sm hover:shadow-xl">
+                    <div class="w-16 h-16 mx-auto bg-white rounded-full flex items-center justify-center text-gold mb-6 shadow-sm text-2xl">🦷</div>
+                    <h4 class="font-serif text-xl text-sage-900 mb-3 font-bold">Bruxismo</h4>
+                    <p class="text-sm text-sage-700 leading-relaxed">Apertar ou ranger os dentes à noite ou durante o dia sem perceber.</p>
+                </div>
+                <div class="bg-sand p-10 rounded-3xl text-center hover:-translate-y-3 transition-transform duration-300 border border-sage-100 shadow-sm hover:shadow-xl">
+                    <div class="w-16 h-16 mx-auto bg-white rounded-full flex items-center justify-center text-gold mb-6 shadow-sm text-2xl">⚡</div>
+                    <h4 class="font-serif text-xl text-sage-900 mb-3 font-bold">Disfunção da ATM</h4>
+                    <p class="text-sm text-sage-700 leading-relaxed">Estalos ao abrir a boca, limitação de movimento e dor na articulação.</p>
+                </div>
+                <div class="bg-sand p-10 rounded-3xl text-center hover:-translate-y-3 transition-transform duration-300 border border-sage-100 shadow-sm hover:shadow-xl">
+                    <div class="w-16 h-16 mx-auto bg-white rounded-full flex items-center justify-center text-gold mb-6 shadow-sm text-2xl">🔋</div>
+                    <h4 class="font-serif text-xl text-sage-900 mb-3 font-bold">Fadiga Crônica</h4>
+                    <p class="text-sm text-sage-700 leading-relaxed">Sono que não repara, cansaço extremo e tensão cervical acumulada.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- O Método (A Solução) -->
+    <section id="metodo" class="py-28 bg-sage-900 text-sand relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+            <div class="flex flex-col lg:flex-row gap-20 items-center">
+                <div class="lg:w-1/3">
+                    <h2 class="text-gold uppercase tracking-[0.2em] text-xs font-bold mb-4">Tratamento Personalizado</h2>
+                    <h3 class="font-serif text-4xl lg:text-5xl mb-8 leading-tight">O Método Alívio Consciente</h3>
+                    <p class="text-sage-100 mb-10 leading-relaxed text-lg opacity-90">
+                        Um programa terapêutico de 3 meses, desenhado para ir além do sintoma e cuidar da raiz do problema — devolvendo equilíbrio, consciência corporal e liberdade de viver.
+                    </p>
+                    <button @click="openModal" class="bg-gold text-white px-8 py-4 rounded-full text-sm font-bold uppercase tracking-widest shadow-[0_4px_14px_0_rgba(197,168,128,0.39)] hover:bg-goldhover transition-all duration-300 w-full sm:w-auto">
+                        Agendar Minha Avaliação
+                    </button>
+                </div>
+                
+                <div class="lg:w-2/3 grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white/5 backdrop-blur-md p-8 border border-white/10 rounded-3xl hover:bg-white/10 transition-colors duration-300">
+                        <span class="text-gold text-6xl font-serif opacity-30 block mb-4">01</span>
+                        <h4 class="font-serif text-2xl mb-4 text-white">Consciência e Mapeamento</h4>
+                        <p class="text-sage-100 leading-relaxed opacity-80">Entender para começar a aliviar. Avaliação detalhada, diário da dor, e rastreamento de hábitos parafuncionais.</p>
+                    </div>
+                    <div class="bg-white/5 backdrop-blur-md p-8 border border-white/10 rounded-3xl hover:bg-white/10 transition-colors duration-300">
+                        <span class="text-gold text-6xl font-serif opacity-30 block mb-4">02</span>
+                        <h4 class="font-serif text-2xl mb-4 text-white">Desinflamação e Reequilíbrio</h4>
+                        <p class="text-sage-100 leading-relaxed opacity-80">O corpo sai do estado de defesa com exercícios miofuncionais, respiração e laserterapia presencial.</p>
+                    </div>
+                    <div class="bg-white/5 backdrop-blur-md p-8 border border-white/10 rounded-3xl hover:bg-white/10 transition-colors duration-300">
+                        <span class="text-gold text-6xl font-serif opacity-30 block mb-4">03</span>
+                        <h4 class="font-serif text-2xl mb-4 text-white">Estabilização e Qualidade</h4>
+                        <p class="text-sage-100 leading-relaxed opacity-80">Transformar melhora em permanência com estratégias anti-recidiva, força funcional e organização do sono.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Procedimentos / Atuação Clínica -->
+    <section id="procedimentos" class="py-28 bg-sage-50">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <h2 class="text-gold uppercase tracking-[0.2em] text-xs font-bold mb-4">Atuação Clínica</h2>
+                <h3 class="font-serif text-4xl md:text-5xl text-sage-900 mb-6">Odontologia Integral e Humanizada</h3>
+                <p class="text-lg text-sage-700 leading-relaxed">Muito além do alívio da dor, oferecemos um ecossistema completo de tratamentos para garantir sua saúde bucal, estética e bem-estar sistêmico.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="bg-white p-10 rounded-3xl shadow-sm border border-sage-100 hover:shadow-lg transition-shadow duration-300">
+                    <div class="w-14 h-14 bg-sage-100 rounded-full flex items-center justify-center text-sage-900 mb-6 text-xl">
+                        <i class="fas fa-head-side-mask"></i>
+                    </div>
+                    <h4 class="font-serif text-2xl text-sage-900 font-bold mb-4">DTM, Dor e Sono</h4>
+                    <ul class="space-y-4 text-sage-700 text-sm">
+                        <li class="flex items-start"><i class="fas fa-check text-gold mt-1 mr-3"></i> <span>Tratamento especializado de <strong>dores na face</strong>.</span></li>
+                        <li class="flex items-start"><i class="fas fa-check text-gold mt-1 mr-3"></i> <span>Tratamento do <strong>Bruxismo e distúrbios do sono</strong>.</span></li>
+                        <li class="flex items-start"><i class="fas fa-check text-gold mt-1 mr-3"></i> <span><strong>Ortodontia</strong>: Alinhamento funcional e estético do sorriso.</span></li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-10 rounded-3xl shadow-sm border border-sage-100 hover:shadow-lg transition-shadow duration-300">
+                    <div class="w-14 h-14 bg-sage-100 rounded-full flex items-center justify-center text-sage-900 mb-6 text-xl">
+                        <i class="fas fa-hospital-user"></i>
+                    </div>
+                    <h4 class="font-serif text-2xl text-sage-900 font-bold mb-4">Odontologia Hospitalar & Laser</h4>
+                    <ul class="space-y-4 text-sage-700 text-sm">
+                        <li class="flex items-start"><i class="fas fa-check text-gold mt-1 mr-3"></i> <span><strong>Odontologia Hospitalar:</strong> Assistência especializada a pacientes com alterações sistêmicas.</span></li>
+                        <li class="flex items-start"><i class="fas fa-check text-gold mt-1 mr-3"></i> <span><strong>Laserterapia Integrativa:</strong> Protocolos para pacientes oncológicos, herpes, doença mão-pé-boca, Cândida, etc.</span></li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-10 rounded-3xl shadow-sm border border-sage-100 hover:shadow-lg transition-shadow duration-300">
+                    <div class="w-14 h-14 bg-sage-100 rounded-full flex items-center justify-center text-sage-900 mb-6 text-xl">
+                        <i class="fas fa-tooth"></i>
+                    </div>
+                    <h4 class="font-serif text-2xl text-sage-900 font-bold mb-4">Saúde Bucal e Prevenção</h4>
+                    <ul class="space-y-4 text-sage-700 text-sm">
+                        <li class="flex items-start"><i class="fas fa-check text-gold mt-1 mr-3"></i> <span><strong>Sialometria:</strong> Avaliação e adequação da saliva no meio bucal.</span></li>
+                        <li class="flex items-start"><i class="fas fa-check text-gold mt-1 mr-3"></i> <span>Diagnóstico e tratamento do <strong>mau hálito</strong>.</span></li>
+                        <li class="flex items-start"><i class="fas fa-check text-gold mt-1 mr-3"></i> <span>Limpeza bucal profunda e <strong>instrução de higiene individualizada</strong>.</span></li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-10 rounded-3xl shadow-sm border border-sage-100 hover:shadow-lg transition-shadow duration-300">
+                    <div class="w-14 h-14 bg-sage-100 rounded-full flex items-center justify-center text-sage-900 mb-6 text-xl">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h4 class="font-serif text-2xl text-sage-900 font-bold mb-4">Estética e Reabilitação</h4>
+                    <ul class="space-y-4 text-sage-700 text-sm">
+                        <li class="flex items-start"><i class="fas fa-check text-gold mt-1 mr-3"></i> <span><strong>Clareamento</strong> dental individualizado.</span></li>
+                        <li class="flex items-start"><i class="fas fa-check text-gold mt-1 mr-3"></i> <span><strong>Restauração</strong> e adequação do meio bucal.</span></li>
+                        <li class="flex items-start"><i class="fas fa-check text-gold mt-1 mr-3"></i> <span><strong>Endodontia moderna</strong> (tratamento de canal avançado e seguro).</span></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center">
+                <button @click="openModal" class="border-2 border-gold text-gold hover:bg-gold hover:text-white transition-colors duration-300 px-10 py-4 rounded-full text-sm font-bold uppercase tracking-widest w-full sm:w-auto shadow-sm hover:shadow-md">
+                    Agendar um Procedimento
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- E-Books Section (Biblioteca Completa) -->
+    <section id="ebooks" class="py-28 bg-white border-b border-sage-100">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="text-center mb-20">
+                <h2 class="text-gold uppercase tracking-[0.2em] text-xs font-bold mb-4">Para fazer em casa</h2>
+                <h3 class="font-serif text-4xl md:text-5xl text-sage-900">Biblioteca Alívio Consciente</h3>
+                <p class="text-sage-700 mt-6 max-w-2xl mx-auto text-lg">Se você ainda não pode iniciar o tratamento presencial, acesse nosso acervo completo de guias práticos elaborados cientificamente para você iniciar seu processo de cura agora mesmo.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                
+                <div class="bg-white rounded-3xl shadow-lg border border-sage-100 overflow-hidden flex flex-col hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="aspect-[2/3] w-full bg-gray-100 relative overflow-hidden">
+                        <img src="{{ url_for('static', filename='img/image_13ad7f.jpg') }}" alt="Capa E-book Ressignificar para Curar" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h4 class="font-serif text-xl text-sage-900 font-bold mb-2">Ressignificar para Curar</h4>
+                        <p class="text-sage-700 mb-6 text-sm flex-grow">Visão integrativa sobre a dor, o impacto das emoções no bruxismo e como o corpo reflete a alma.</p>
+                        <a href="#" class="block w-full bg-sage-900 text-white text-center py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-sage-700 transition">
+                            Comprar Livro
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl shadow-lg border border-sage-100 overflow-hidden flex flex-col hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="aspect-[2/3] w-full bg-gray-100 relative overflow-hidden">
+                        <img src="{{ url_for('static', filename='img/image_08e682.jpg') }}" alt="Capa Guia de Higiene do Sono" class="w-full h-full object-cover object-center">
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h4 class="font-serif text-xl text-sage-900 font-bold mb-2">Higiene do Sono</h4>
+                        <p class="text-sage-700 mb-6 text-sm flex-grow">O poder da noite reparadora, controle da apneia e rotinas de desintoxicação e relaxamento.</p>
+                        <a href="#" class="block w-full bg-gold text-white text-center py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-goldhover transition">
+                            Comprar Guia
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl shadow-lg border border-sage-100 overflow-hidden flex flex-col hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="aspect-[2/3] w-full bg-gray-100 relative overflow-hidden">
+                        <img src="{{ url_for('static', filename='img/Gemini_Generated_Image_un0kceun0kceun0k.jpg') }}" alt="Capa Diário de Dor e Alívio" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h4 class="font-serif text-xl text-sage-900 font-bold mb-2">Diário de Dor e Alívio</h4>
+                        <p class="text-sage-700 mb-6 text-sm flex-grow">Ferramenta prática para 30 dias de autoconhecimento, rastreamento de sintomas e gatilhos.</p>
+                        <a href="#" class="block w-full border-2 border-sage-900 text-sage-900 text-center py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-sage-900 hover:text-white transition">
+                            Comprar Diário
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl shadow-lg border border-sage-100 overflow-hidden flex flex-col hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="aspect-[2/3] w-full bg-gray-100 relative overflow-hidden">
+                        <img src="{{ url_for('static', filename='img/ebook.jpg') }}" alt="Capa Guia Completo de DTM" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h4 class="font-serif text-xl text-sage-900 font-bold mb-2">Guia Completo de DTM</h4>
+                        <p class="text-sage-700 mb-6 text-sm flex-grow">Entenda a dor orofacial a fundo e aprenda as práticas essenciais para proteger sua articulação.</p>
+                        <a href="#" class="block w-full border-2 border-sage-900 text-sage-900 text-center py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-sage-900 hover:text-white transition">
+                            Comprar Guia
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl shadow-lg border border-sage-100 overflow-hidden flex flex-col hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="aspect-[2/3] w-full bg-gray-100 relative overflow-hidden">
+                        <img src="{{ url_for('static', filename='img/037b6b59-7ad0-47e0-81a1-504d9b7af092.jpg') }}" alt="Capa Guia Alívio e Movimento" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h4 class="font-serif text-xl text-sage-900 font-bold mb-2">Alívio e Movimento</h4>
+                        <p class="text-sage-700 mb-6 text-sm flex-grow">Guia ilustrado de alongamento cervical e liberação do trapézio para recuperar a postura.</p>
+                        <a href="#" class="block w-full border-2 border-sage-900 text-sage-900 text-center py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-sage-900 hover:text-white transition">
+                            Comprar Guia
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl shadow-lg border border-sage-100 overflow-hidden flex flex-col hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="aspect-[2/3] w-full bg-gray-100 relative overflow-hidden">
+                        <img src="{{ url_for('static', filename='img/48585785420.jpg') }}" alt="Capa Terapia Manual" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h4 class="font-serif text-xl text-sage-900 font-bold mb-2">Alívio Rápido da Tensão</h4>
+                        <p class="text-sage-700 mb-6 text-sm flex-grow">Técnicas manuais e exercícios baseados em evidências para relaxar a face em casa.</p>
+                        <a href="#" class="block w-full border-2 border-gold text-gold text-center py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-gold hover:text-white transition">
+                            Comprar Manual
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl shadow-lg border border-sage-100 overflow-hidden flex flex-col hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="aspect-[2/3] w-full bg-gray-100 relative overflow-hidden">
+                        <img src="{{ url_for('static', filename='img/checklist.jpg') }}" alt="Capa Checklist de Hábitos" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h4 class="font-serif text-xl text-sage-900 font-bold mb-2">Checklist de Hábitos</h4>
+                        <p class="text-sage-700 mb-6 text-sm flex-grow">Controle parafuncional, pausas de tensão e higiene física para imprimir e preencher diariamente.</p>
+                        <a href="#" class="block w-full border-2 border-sage-900 text-sage-900 text-center py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-sage-900 hover:text-white transition">
+                            Baixar Checklist
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl shadow-lg border border-sage-100 overflow-hidden flex flex-col hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="aspect-[2/3] w-full bg-gray-100 relative overflow-hidden">
+                        <img src="{{ url_for('static', filename='img/caderno.jpg') }}" alt="Capa Caderno Terapêutico" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h4 class="font-serif text-xl text-sage-900 font-bold mb-2">Caderno Terapêutico</h4>
+                        <p class="text-sage-700 mb-6 text-sm flex-grow">Exercícios práticos de escrita e reflexão emocional integrados ao Método Alívio Consciente.</p>
+                        <a href="#" class="block w-full border-2 border-sage-900 text-sage-900 text-center py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-sage-900 hover:text-white transition">
+                            Comprar Caderno
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Desafio 7 Dias -->
+    <section id="desafio" class="py-28 bg-sage-50">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="bg-sand rounded-[40px] shadow-sm border border-sage-100 overflow-hidden flex flex-col lg:flex-row">
+                <div class="lg:w-1/2 p-12 lg:p-16 flex flex-col justify-center">
+                    <span class="bg-gold/20 text-gold text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full w-max mb-6"><i class="fab fa-whatsapp"></i> Acesso Direto</span>
+                    <h3 class="font-serif text-4xl text-sage-900 mb-6 leading-tight">Desafio 7 Dias: Redução da Dor na ATM</h3>
+                    <p class="text-sage-700 mb-10 text-lg leading-relaxed">Exercícios simples para aliviar dores na face e tensão muscular hoje mesmo. Sem remédios, sem equipamentos. Você receberá o passo a passo de forma <strong class="text-sage-900">100% individual e privada</strong> no seu WhatsApp para fazer no seu tempo.</p>
+                    <a href="https://wa.me/5500000000000?text=QUERO" target="_blank" class="bg-[#25D366] text-white text-center px-8 py-5 rounded-full font-bold uppercase text-sm tracking-widest hover:bg-green-600 transition shadow-lg w-full sm:w-auto self-start">
+                        Receber Desafio no WhatsApp
+                    </a>
+                </div>
+                <div class="lg:w-1/2 p-12 lg:p-16 bg-white">
+                    <ul class="space-y-8">
+                        <li class="flex gap-6">
+                            <div class="w-12 h-12 rounded-full bg-sage-100 flex items-center justify-center text-sage-900 font-bold font-serif shadow-sm flex-shrink-0">1</div>
+                            <div>
+                                <h5 class="font-bold text-sage-900 mb-1 text-lg">Consciência Postural</h5>
+                                <p class="text-sm text-sage-700 leading-relaxed">Ajustes práticos de coluna e ombros durante o trabalho.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-6">
+                            <div class="w-12 h-12 rounded-full bg-sage-100 flex items-center justify-center text-sage-900 font-bold font-serif shadow-sm flex-shrink-0">2</div>
+                            <div>
+                                <h5 class="font-bold text-sage-900 mb-1 text-lg">Massagem & Alongamento</h5>
+                                <p class="text-sm text-sage-700 leading-relaxed">Liberação da tensão cervical, temporal e masseter.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-6">
+                            <div class="w-12 h-12 rounded-full bg-sage-100 flex items-center justify-center text-sage-900 font-bold font-serif shadow-sm flex-shrink-0">3</div>
+                            <div>
+                                <h5 class="font-bold text-sage-900 mb-1 text-lg">Gestão do Estresse</h5>
+                                <p class="text-sm text-sage-700 leading-relaxed">Técnicas de respiração para desarmar o sistema nervoso.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre a Dra Dani -->
+    <section id="sobre" class="py-28 bg-sage-900 text-sand">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="flex flex-col lg:flex-row items-center gap-20">
+                <div class="lg:w-5/12 relative">
+                    <div class="absolute inset-0 bg-gold rounded-full blur-3xl opacity-20 transform -translate-x-10 translate-y-10"></div>
+                    <img src="{{ url_for('static', filename='img/input_file_1.jpg') }}" alt="Dra. Dani Montenegro" class="relative z-10 rounded-t-full rounded-b-3xl shadow-2xl w-full border-4 border-white/10" onerror="this.src='https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';">
+                </div>
+                <div class="lg:w-7/12">
+                    <h2 class="text-gold uppercase tracking-[0.2em] text-xs font-bold mb-4">Sobre a Autora</h2>
+                    <h3 class="font-serif text-5xl text-white mb-8">Dra. Dani Montenegro</h3>
+                    <p class="text-xl text-sage-100 mb-8 italic border-l-2 border-gold pl-6 opacity-90 leading-relaxed">
+                        "Cuidar de pessoas sempre foi minha profissão. Acolher suas dores e participar da sua transformação tornou-se minha missão."
+                    </p>
+                    <div class="text-sage-100 space-y-6 leading-relaxed opacity-80">
+                        <p>Desde que me formei em Odontologia, em 1999, descobri que minha missão ia muito além de transformar sorrisos. Percebi que por trás de cada dor — do bruxismo, das cefaleias, do cansaço crônico — existe uma história e emoções que merecem ser acolhidas.</p>
+                        <p>Como Especialista em Ortodontia e em DTM e Dor Orofacial, além de possuir Habilitação em Laserterapia, criei o <strong class="text-gold">Método Alívio Consciente</strong> para tratar não apenas o sintoma, mas ajudar você a recuperar sua qualidade de vida através de um cuidado integrativo.</p>
+                        <p>Além do tratamento de dores focado na articulação e musculatura, atuo com a Ortodontia para o alinhamento funcional do seu sorriso. Utilizo a Laserterapia como uma forte aliada: uma tecnologia rápida e indolor que atua diretamente na desinflamação, alívio da dor e reparação dos tecidos, acelerando o seu processo de cura.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-sand py-16">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
+            <div>
+                <h2 class="font-serif text-3xl font-bold text-gold mb-6">Dani Montenegro</h2>
+                <p class="text-sm text-gray-400 max-w-xs mx-auto md:mx-0 leading-relaxed">
+                    Transformando dores crônicas em qualidade de vida através da Odontologia Integrativa.
+                </p>
+            </div>
+            <div>
+                <h4 class="uppercase tracking-widest text-xs font-bold text-white mb-6">Navegação</h4>
+                <ul class="space-y-4 text-sm text-gray-400">
+                    <li><a href="#metodo" class="hover:text-gold transition">O Método</a></li>
+                    <li><a href="#procedimentos" class="hover:text-gold transition">Procedimentos</a></li>
+                    <li><a href="#ebooks" class="hover:text-gold transition">Biblioteca de E-books</a></li>
+                    <li><a href="#sobre" class="hover:text-gold transition">Sobre a Dra. Dani</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="uppercase tracking-widest text-xs font-bold text-white mb-6">Contato</h4>
+                <ul class="space-y-4 text-sm text-gray-400 mb-8">
+                    <li><i class="fab fa-instagram mr-2"></i> <a href="https://instagram.com/dradanimontenegro" target="_blank" class="hover:text-gold transition">@dradanimontenegro</a></li>
+                    <li><i class="fas fa-stethoscope mr-2"></i> Especialista em Ortodontia, DTM e Dor Orofacial.</li>
+                </ul>
+                <button @click="openModal" class="border border-gold text-gold hover:bg-gold hover:text-dark transition-colors duration-300 px-8 py-3 rounded-full text-xs font-bold uppercase tracking-widest w-full sm:w-auto">
+                    Agendar Avaliação
+                </button>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 mt-16 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+            <p>&copy; 2026 Dra. Dani Montenegro. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Chatbot Modal (Agendamento Interativo) -->
+    <div v-if="isModalOpen" class="fixed inset-0 z-[60] flex items-center justify-center p-4 sm:p-6">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-dark/80 backdrop-blur-sm transition-opacity" @click="closeModal"></div>
+        
+        <!-- Chat Container -->
+        <div class="bg-sand rounded-[30px] shadow-2xl w-full max-w-lg h-[600px] max-h-[85vh] relative z-10 flex flex-col transform transition-all overflow-hidden border border-sage-100">
+            
+            <!-- Chat Header -->
+            <div class="bg-white px-6 py-4 flex items-center justify-between border-b border-sage-100 shadow-sm z-20">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-sage-100 rounded-full flex items-center justify-center text-sage-900 border border-sage-500/30">
+                        <i class="fas fa-robot text-lg"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-sage-900 text-sm">Assistente Virtual</h3>
+                        <p class="text-[10px] text-green-500 uppercase tracking-widest font-bold"><i class="fas fa-circle text-[8px] mr-1"></i> Online</p>
+                    </div>
+                </div>
+                <button @click="closeModal" class="w-8 h-8 rounded-full flex items-center justify-center text-gray-400 hover:bg-gray-100 hover:text-dark transition">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <!-- Chat Messages Area -->
+            <div class="flex-1 overflow-y-auto p-6 space-y-6 bg-sand" id="chatContainer">
+                <div v-for="(msg, index) in chatMessages" :key="index" class="flex flex-col w-full" :class="msg.sender === 'user' ? 'items-end' : 'items-start'">
+                    
+                    <!-- Text Bubble -->
+                    <div v-if="msg.text" 
+                         class="max-w-[85%] px-5 py-3 text-sm leading-relaxed shadow-sm"
+                         :class="msg.sender === 'user' 
+                            ? 'bg-sage-700 text-white rounded-tl-2xl rounded-tr-2xl rounded-bl-2xl' 
+                            : 'bg-white text-sage-900 rounded-tl-2xl rounded-tr-2xl rounded-br-2xl border border-sage-100'">
+                        <span v-html="msg.text"></span>
+                    </div>
+
+                    <!-- Options Buttons -->
+                    <div v-if="msg.options && msg.options.length > 0" class="mt-3 flex flex-wrap gap-2 max-w-[90%]">
+                        <button v-for="opt in msg.options" :key="opt.value" 
+                                @click="selectOption(opt)"
+                                class="bg-white border border-sage-500 text-sage-900 px-4 py-2 rounded-full text-xs font-bold hover:bg-sage-100 transition shadow-sm"
+                                v-text="opt.label">
+                        </button>
+                    </div>
+                    
+                    <!-- Calendar Widget -->
+                    <div v-if="msg.isCalendar" class="mt-3 w-full bg-white rounded-2xl border border-sage-100 p-4 shadow-sm max-w-[90%]">
+                        <div class="text-center font-bold text-sage-900 capitalize mb-4 text-sm" v-text="msg.calendarData.monthName"></div>
+                        <div class="grid grid-cols-7 gap-1 text-center text-xs mb-2 text-sage-500 font-bold">
+                            <div>D</div><div>S</div><div>T</div><div>Q</div><div>Q</div><div>S</div><div>S</div>
+                        </div>
+                        <div class="grid grid-cols-7 gap-1 text-center">
+                            <div v-for="(dayObj, idx) in msg.calendarData.days" :key="idx" class="aspect-square flex items-center justify-center rounded-lg text-sm transition-all"
+                                 :class="{
+                                    'opacity-0': dayObj.blank,
+                                    'text-gray-300 cursor-not-allowed bg-gray-50': !dayObj.blank && !dayObj.isAvailable,
+                                    'bg-sage-100 text-sage-900 font-bold cursor-pointer hover:bg-gold hover:text-white shadow-sm': !dayObj.blank && dayObj.isAvailable
+                                 }"
+                                 @click="!dayObj.blank && dayObj.isAvailable ? selectDate(dayObj) : null"
+                                 v-text="dayObj.day">
+                            </div>
+                        </div>
+                        <div class="mt-3 text-[10px] text-center text-sage-500 italic">Clique em um dos dias disponíveis em destaque.</div>
+                    </div>
+
+                    <!-- Final Action Button -->
+                    <div v-if="msg.action" class="mt-4 w-full">
+                        <button @click="finalizeScheduling" class="w-full bg-[#25D366] text-white px-6 py-4 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-green-600 transition shadow-[0_4px_14px_0_rgba(37,211,102,0.39)] flex justify-center items-center">
+                            Confirmar no WhatsApp <i class="fab fa-whatsapp text-lg ml-2"></i>
+                        </button>
+                    </div>
+
+                </div>
+
+                <!-- Typing Indicator -->
+                <div v-if="isTyping" class="flex items-start">
+                    <div class="bg-white px-5 py-3 rounded-tl-2xl rounded-tr-2xl rounded-br-2xl border border-sage-100 shadow-sm flex gap-1">
+                        <div class="w-2 h-2 bg-sage-500 rounded-full animate-bounce"></div>
+                        <div class="w-2 h-2 bg-sage-500 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+                        <div class="w-2 h-2 bg-sage-500 rounded-full animate-bounce" style="animation-delay: 0.4s"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Chat Input Area (ALWAYS VISIBLE UNTIL FINISH) -->
+            <div class="bg-white p-4 border-t border-sage-100">
+                <form @submit.prevent="handleSend" class="flex items-center gap-3" v-if="currentStep !== 'finish'">
+                    <input type="text" v-model="userInput" 
+                           :placeholder="getPlaceholder" 
+                           class="flex-1 bg-sand border border-sage-100 rounded-full px-5 py-3 focus:outline-none focus:border-sage-500 focus:ring-1 focus:ring-sage-500 text-sm text-sage-900 transition">
+                    <button type="submit" :disabled="!userInput.trim()" class="w-12 h-12 bg-sage-900 rounded-full flex items-center justify-center text-white hover:bg-sage-700 transition disabled:opacity-50 disabled:cursor-not-allowed flex-shrink-0">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
