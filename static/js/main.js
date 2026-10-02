@@ -1,4 +1,5 @@
 const { createApp, ref, reactive, nextTick, computed } = Vue
+const clinicWhatsAppNumber = '558198450666';
 
 createApp({
     setup() {
@@ -115,8 +116,9 @@ createApp({
         };
 
         const openModal = () => {
-            isModalOpen.value = true;
-            initChat();
+            const message = 'Olá! Gostaria de agendar uma consulta com a Dra. Dani Montenegro.';
+            const whatsappUrl = `https://wa.me/${clinicWhatsAppNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
         };
         
         const closeModal = () => {
@@ -241,8 +243,7 @@ createApp({
                 });
             } catch(e) { console.log('Integração disparada') }
 
-            // Insira o número do WhatsApp da Clínica
-            const phone = "5581900000000"; 
+            const phone = clinicWhatsAppNumber;
             
             const text = `Olá, meninas! Acabei de falar com a assistente virtual no site e gostaria de confirmar meu agendamento.%0A%0A📋 *RESUMO DO ATENDIMENTO:*%0A👤 *Nome:* ${appointmentData.name}%0A📞 *WhatsApp:* ${appointmentData.phone}%0A🚨 *Procedimento:* ${appointmentData.symptom}%0A⏳ *Tempo:* ${appointmentData.duration}%0A📅 *Data escolhida:* ${appointmentData.date}%0A⏰ *Horário:* ${appointmentData.time}`;
             
