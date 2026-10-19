@@ -1,5 +1,4 @@
 import os
-
 from flask import Flask, render_template, request, jsonify
 import requests
 
@@ -12,6 +11,12 @@ WEBHOOK_URL = os.environ.get('WEBHOOK_URL', 'https://sua-url-de-automacao-nocode
 def index():
     return render_template('index.html')
 
+# --- NOVA ROTA: PÁGINA DE LINKS (INSTAGRAM) ---
+@app.route('/links')
+def links():
+    return render_template('links.html')
+# ----------------------------------------------
+
 @app.route('/api/agendar', methods=['POST'])
 def agendar():
     data = request.json
@@ -23,7 +28,6 @@ def agendar():
     sintoma = data.get('symptom')
     
     # 2. Automação: Disparo para o Webhook / CRM
-    # Se você configurar um webhook, o Flask enviará a lead silenciosamente para o seu banco de dados
     if WEBHOOK_URL != "https://sua-url-de-automacao-nocode.com/webhook":
         payload = {
             "origem": "Site - Dra Dani",
