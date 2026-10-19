@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dra. Dani Montenegro | Links</title>
+    
+    <!-- Fontes Premium: Playfair Display (Serif) e Montserrat (Sans-Serif) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+    
+    <!-- Ícones FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Link para o seu CSS (Flask) -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="links-page">
+    
+    <div class="links-container">
+        <!-- Cabeçalho do Perfil -->
+        <div class="profile-header">
+            <div class="profile-image-wrapper">
+                <!-- Certifique-se de colocar uma foto da Dra na pasta static chamada 'foto-dani.jpg' -->
+                <img src="{{ url_for('static', filename='foto-dani.jpg') }}" alt="Dra. Dani Montenegro">
+            </div>
+            <h1 class="profile-name">Dra. Dani Montenegro</h1>
+            <p class="profile-bio">
+                Odonto com propósito 🧠<br>
+                Neurociência aplicada ao bruxismo, DTM, laser para uma vida sem dor. Trato mau hálito, ronco e apneia.
+            </p>
+            
+            <div class="social-icons">
+                <a href="https://instagram.com/dradanimontenegro" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            </div>
+        </div>
+
+        <!-- Lista de Links -->
+        <div class="links-list">
+            <!-- Botão Principal (Verde Escuro) -->
+            <a href="#" class="link-btn primary-btn">
+                <i class="fab fa-whatsapp"></i> Falar no WhatsApp
+            </a>
+            
+            <!-- Botão Secundário (Dourado/Bege) -->
+            <a href="#" class="link-btn secondary-btn">
+                <i class="far fa-calendar-alt"></i> Agende Sua Avaliação - SouSmile
+            </a>
+            
+            <!-- Botões Outline (Contorno) -->
+            <a href="#" class="link-btn outline-btn">
+                <i class="fas fa-download"></i> Método Alívio Consciente
+            </a>
+            
+            <a href="#" class="link-btn outline-btn">
+                <i class="fas fa-question-circle"></i> Você conhece alguém com mau hálito?
+            </a>
+            
+            <a href="#" class="link-btn outline-btn">
+                <i class="fas fa-star"></i> Deixe sua avaliação!
+            </a>
+            
+            <!-- Localização -->
+            <a href="#" class="link-btn location-btn">
+                <i class="fas fa-map-marker-alt"></i> Localização Caruaru
+            </a>
+            <a href="#" class="link-btn location-btn">
+                <i class="fas fa-map-marker-alt"></i> Localização Bezerros
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
