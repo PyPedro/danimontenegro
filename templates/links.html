@@ -23,7 +23,7 @@
         <div class="profile-header">
             <div class="profile-image-wrapper">
                 <!-- Caminho da imagem para a subpasta img/ -->
-                <img src="{{ url_for('static', filename='img/foto-dani.jpg') }}" alt="Dra. Dani Montenegro">
+                <img src="{{ url_for('static', filename='img/foto-dani.jpg') }}" alt="Dra. Dani Montenegro" onerror="this.src='https://images.unsplash.com/photo-1590611936760-eeb9bc5094d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';">
             </div>
             <h1 class="profile-name">Dra. Dani Montenegro</h1>
             <p class="profile-bio">
@@ -33,41 +33,49 @@
             
             <div class="social-icons">
                 <a href="https://instagram.com/dradanimontenegro" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.facebook.com/profile.php?id=61562477844211&ref=NONE_xav_ig_profile_page_web#" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
             </div>
         </div>
 
         <!-- Lista de Links -->
         <div class="links-list">
-            <!-- Botão Principal (Verde Escuro) -->
+            <!-- Botão Principal (WhatsApp) -->
             <a href="https://api.whatsapp.com/send/?phone=5581998450666&text=Oi%2C+vim+pelo+perfil+do+google%21&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="link-btn primary-btn">
                 <i class="fab fa-whatsapp"></i> Falar no WhatsApp
             </a>
             
-            <!-- Botão Secundário (Dourado/Bege) -->
-            <a href="https://www.sousmile.com/agenda/?leadProfile=PAV&storeId=4276&utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnKCSAyRvOtV08AN6TmUTcgtRFEGe4jjzQKRD2LHWi5hmeinxvKpmjAa4IyS8_aem_JVCPNUaMfQxxRzRPrZgp8A" target="_blank" rel="noopener noreferrer" class="link-btn secondary-btn">
+            <!-- Botão Secundário (SouSmile) -->
+            <a href="https://www.sousmile.com/agenda/?leadProfile=PAV&storeId=4276&utm_source=ig&utm_medium=social&utm_content=link_in_bio" target="_blank" rel="noopener noreferrer" class="link-btn secondary-btn">
                 <i class="far fa-calendar-alt"></i> Agende Sua Avaliação - SouSmile
             </a>
+
+            <!-- Botão para a Biblioteca de E-books -->
+            <a href="/links/ebooks" class="link-btn outline-btn" style="border-color: #C5A880; background-color: rgba(197, 168, 128, 0.05);">
+                <i class="fas fa-book-open" style="color: #C5A880;"></i> Acessar E-books & Guias Práticos
+            </a>
             
-            <!-- Botões Outline (Contorno) -->
+            <!-- Método Alívio Consciente -->
             <a href="https://drive.google.com/file/d/1gq-D0Uz8gaqBGGNuxqfdQvb6MjqBMcxB/view" target="_blank" rel="noopener noreferrer" class="link-btn outline-btn">
                 <i class="fas fa-download"></i> Método Alívio Consciente
             </a>
             
-            <a href="https://blogdovanguarda.com.br/voce-conhece-alguem-que-ja-teve-ou-tem-mau-halito/?fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnlNGYSPULjni1dwU3Av7YU4qP-9m6sdpleB83lO0o3lAf2FpXA8zk6Z_mN9E_aem_sL1Ket59S0p1FU0UrtdL1w" target="_blank" rel="noopener noreferrer" class="link-btn outline-btn">
+            <!-- Artigo / Blog -->
+            <a href="https://blogdovanguarda.com.br/voce-conhece-alguem-que-ja-teve-ou-tem-mau-halito/" target="_blank" rel="noopener noreferrer" class="link-btn outline-btn">
                 <i class="fas fa-question-circle"></i> Você conhece alguém com mau hálito?
             </a>
             
+            <!-- Avaliação Google -->
             <a href="https://www.google.com/maps/place//data=!4m3!3m2!1s0x7a98b5fda966c2d:0x39b66059bbca54fe!12e1?source=g.page.m._&laa=merchant-review-solicitation" target="_blank" rel="noopener noreferrer" class="link-btn outline-btn">
                 <i class="fas fa-star"></i> Deixe sua avaliação!
             </a>
             
-            <!-- Localização -->
-            <a href="https://www.google.com/maps/place/Dra.+Daniella+Montenegro/@-8.2812469,-35.9707465,17z/data=!3m1!4b1!4m6!3m5!1s0x7a98b5fda966c2d:0x39b66059bbca54fe!8m2!3d-8.2812469!4d-35.9707465!16s%2Fg%2F11fpv64tqk?entry=tts&g_ep=EgoyMDI2MDUwNi4wIPu8ASoASAFQAw%3D%3D&skid=3be5e779-07d5-4e2a-9fac-9b6757f1d889" target="_blank" rel="noopener noreferrer" class="link-btn location-btn">
+            <!-- Localização Caruaru -->
+            <a href="https://www.google.com/maps/place/Dra.+Daniella+Montenegro/@-8.2812469,-35.9707465,17z" target="_blank" rel="noopener noreferrer" class="link-btn location-btn">
                 <i class="fas fa-map-marker-alt"></i> Localização Caruaru
             </a>
             
-            <a href="https://www.google.com/maps/place/Dra+Dani+Montenegro%7CDentista%7CAlinhador+Invis%C3%ADvel%7CSouSmile%7CBruxismo%7C+Bezerros/@-8.2361961,-35.7579991,17z/data=!3m1!4b1!4m6!3m5!1s0x7aa25bcdb53ffaf:0xe03fbcd151deb4d7!8m2!3d-8.2361961!4d-35.7554242!16s%2Fg%2F11xgp915vg?entry=tts&g_ep=EgoyMDI2MDUwNi4wIPu8ASoASAFQAw%3D%3D&skid=d78bd2c4-58ba-4f5d-8176-8a2dd8aec2a4" target="_blank" rel="noopener noreferrer" class="link-btn location-btn">
+            <!-- Localização Bezerros -->
+            <a href="https://www.google.com/maps/place/Dra+Dani+Montenegro%7CDentista%7CAlinhador+Invis%C3%ADvel%7CSouSmile%7CBruxismo%7C+Bezerros/@-8.2361961,-35.7579991,17z" target="_blank" rel="noopener noreferrer" class="link-btn location-btn">
                 <i class="fas fa-map-marker-alt"></i> Localização Bezerros
             </a>
         </div>
