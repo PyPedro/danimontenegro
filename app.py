@@ -11,11 +11,16 @@ WEBHOOK_URL = os.environ.get('WEBHOOK_URL', 'https://sua-url-de-automacao-nocode
 def index():
     return render_template('index.html')
 
-# --- NOVA ROTA: PÁGINA DE LINKS (INSTAGRAM) ---
+# --- ROTA: PÁGINA DE LINKS (INSTAGRAM) ---
 @app.route('/links')
 def links():
     return render_template('links.html')
-# ----------------------------------------------
+
+# --- NOVA ROTA: PÁGINA DE E-BOOKS DA BIO ---
+@app.route('/links/ebooks')
+def links_ebooks():
+    return render_template('links_ebooks.html')
+# ------------------------------------------
 
 @app.route('/api/agendar', methods=['POST'])
 def agendar():
