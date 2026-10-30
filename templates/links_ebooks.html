@@ -13,12 +13,12 @@
     <!-- Ícones FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Link para o CSS (Caminho para a subpasta css/) -->
+    <!-- Link para o CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
-<body class="links-page">
+<body class="links-page" style="display: flex; flex-direction: column; min-height: 100vh; justify-content: space-between;">
     
-    <div class="links-container">
+    <div class="links-container" style="margin: 0 auto;">
         <!-- Cabeçalho -->
         <div class="profile-header">
             <h1 class="profile-name" style="font-size: 24px; margin-bottom: 8px;">Biblioteca de E-books</h1>
@@ -71,6 +71,11 @@
             </a>
         </div>
     </div>
+
+    <!-- Rodapé de Assinatura -->
+    <footer style="text-align: center; padding: 20px 10px; font-size: 11px; color: #777; border-top: 1px solid rgba(42, 59, 44, 0.1); background-color: rgba(0,0,0,0.02); font-family: 'Montserrat', sans-serif;">
+        Desenvolvido por Pedro Marinho. Um produto Optmiza.
+    </footer>
 
 </body>
 </html>
